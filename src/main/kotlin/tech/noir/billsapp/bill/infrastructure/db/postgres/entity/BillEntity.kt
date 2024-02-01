@@ -1,4 +1,4 @@
-package tech.noir.billsapp.bills.infrastructure.db.postgres.entity
+package tech.noir.billsapp.bill.infrastructure.db.postgres.entity
 
 import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp

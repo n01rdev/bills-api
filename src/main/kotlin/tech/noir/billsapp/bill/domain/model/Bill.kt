@@ -1,4 +1,4 @@
-package tech.noir.billsapp.bills.domain.model
+package tech.noir.billsapp.bill.domain.model
 
 data class Bill(
     val id: Long,

@@ -1,15 +1,15 @@
-package tech.noir.billsapp.bills.application.mapper
+package tech.noir.billsapp.bill.application.mapper
 
 import org.springframework.stereotype.Component
-import tech.noir.billsapp.bills.domain.model.Bill
-import tech.noir.billsapp.bills.infrastructure.db.postgres.entity.BillEntity
+import tech.noir.billsapp.bill.domain.model.Bill
+import tech.noir.billsapp.bill.infrastructure.db.postgres.entity.BillEntity
 import tech.noir.billsapp.user.emisor.application.mapper.EmisorMapper
 import tech.noir.billsapp.user.emisor.infrastructure.db.postgres.repository.EmisorRepository
 import tech.noir.billsapp.user.receiver.application.mapper.ReceiverMapper
 import tech.noir.billsapp.user.receiver.infrastructure.db.postgres.repository.ReceiverRepository
 
 @Component
-class BillMapper(
+class BillEntityDomainMapper(
     private val emisorRepository: EmisorRepository,
     private val receiverRepository: ReceiverRepository,
     private val emisorMapper: EmisorMapper,

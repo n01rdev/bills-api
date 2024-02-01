@@ -1,6 +1,6 @@
-package tech.noir.billsapp.bills.domain.repository
+package tech.noir.billsapp.bill.domain.repository
 
-import tech.noir.billsapp.bills.domain.model.Bill
+import tech.noir.billsapp.bill.domain.model.Bill
 
 interface IBillRepository {
     fun save(bill: Bill) : String
