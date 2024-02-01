@@ -13,7 +13,7 @@ import java.util.*
 data class BillEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bills_id_seq")
-    private val id: Long = 0,
+    val id: Long = 0,
 
     @Column(nullable = false, unique = true)
     val uuid: String = UUID.randomUUID().toString(), //TODO: Move to VO
@@ -45,15 +45,15 @@ data class BillEntity (
     val total : Double = 0.0,
 
     @Column(nullable = false)
-    val active: Boolean = true,
+    var active: Boolean = true,
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
-    private val createdAt: LocalDateTime = LocalDateTime.now(),
+    val createdAt: LocalDateTime = LocalDateTime.now(),
 
     @UpdateTimestamp
     @Column(nullable = false)
-    private var updatedAt: LocalDateTime = LocalDateTime.now(),
+    var updatedAt: LocalDateTime = LocalDateTime.now(),
 
     @Column
     var deletedAt: LocalDateTime? = null

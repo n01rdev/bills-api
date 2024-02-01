@@ -1,6 +1,8 @@
 package tech.noir.billsapp.user.emisor.infrastructure.db.postgres.entity
 
 import jakarta.persistence.*
+import org.hibernate.annotations.CreationTimestamp
+import org.hibernate.annotations.UpdateTimestamp
 import java.util.*
 
 @Entity
@@ -40,9 +42,11 @@ data class EmisorEntity (
     @Column(nullable = false)
     val active: Boolean = false,
 
+    @CreationTimestamp
     @Column(nullable = false)
     val createdAt: String = "",
 
+    @UpdateTimestamp
     @Column(nullable = false)
     val updatedAt: String = "",
 
