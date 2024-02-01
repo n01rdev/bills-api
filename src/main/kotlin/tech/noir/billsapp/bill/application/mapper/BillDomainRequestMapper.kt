@@ -17,7 +17,7 @@ class BillDomainRequestMapper {
             concept = bill.concept,
             base = bill.base,
             iva = bill.iva,
-            total = bill.base + bill.iva,
+            total = bill.base + (bill.base * bill.iva), //TODO: Move to VO
             active = true,
             createdAt = "",
             updatedAt = "",
