@@ -3,6 +3,7 @@ package tech.noir.billsapp.user.emisor.infrastructure.db.postgres.entity
 import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
+import java.time.LocalDateTime
 import java.util.*
 
 @Entity
@@ -40,17 +41,17 @@ data class EmisorEntity (
     val country : String = "",
 
     @Column(nullable = false)
-    var active: Boolean = false,
+    var active: Boolean = true,
 
     @CreationTimestamp
-    @Column(nullable = false)
-    val createdAt: String = "",
+    @Column(nullable = false, updatable = false)
+    val createdAt: LocalDateTime = LocalDateTime.now(),
 
     @UpdateTimestamp
     @Column(nullable = false)
-    val updatedAt: String = "",
+    var updatedAt: LocalDateTime = LocalDateTime.now(),
 
-    @Column(nullable = false)
-    val deletedAt: String = "",
+    @Column
+    var deletedAt: LocalDateTime? = null
 )
 

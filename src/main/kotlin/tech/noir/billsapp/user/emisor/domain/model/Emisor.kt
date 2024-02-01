@@ -1,7 +1,7 @@
 package tech.noir.billsapp.user.emisor.domain.model
 
 data class Emisor(
-    val id: Int,
+    val id: Long,
     val uuid: String,
     val firstName : String,
     val lastName : String,

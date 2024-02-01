@@ -1,7 +1,7 @@
 package tech.noir.billsapp.user.receiver.domain.model
 
 data class Receiver(
-    val id: Int,
+    val id: Long,
     val uuid: String,
     val firstName : String,
     val lastName : String,
