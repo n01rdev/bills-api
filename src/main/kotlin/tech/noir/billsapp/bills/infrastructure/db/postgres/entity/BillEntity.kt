@@ -25,12 +25,12 @@ data class BillEntity (
     val expeditionDate : String = "",
 
     @ManyToOne
-    @JoinColumn(name = "emisor_id")
-    val emisor: EmisorEntity,
+    @JoinColumn(name = "emisor_uuid", nullable = false)
+    val emisor: EmisorEntity? = null,
 
     @ManyToOne
-    @JoinColumn(name = "receiver_id")
-    val receiver: ReceiverEntity,
+    @JoinColumn(name = "receiver_uuid", nullable = false)
+    val receiver: ReceiverEntity? = null,
 
     @Column(nullable = false)
     val concept : String = "",
@@ -42,7 +42,7 @@ data class BillEntity (
     val iva : Double = 0.0,
 
     @Column(nullable = false)
-    val date : String = "",
+    val total : Double = 0.0,
 
     @Column(nullable = false)
     val active: Boolean = true,

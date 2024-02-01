@@ -5,12 +5,12 @@ data class Bill(
     val uuid: String,
     val billNumber : String,
     val expeditionDate : String,
-    val emisor: Emisor, //TODO: Add Emisor Model
-    val receiver: Receiver, //TODO: Add Receiver Model
+    val emisorUuid: String,
+    val receiverUuid: String,
     val concept : String,
     val base : Double,
     val iva : Double,
-    val date : String,
+    val total : Double,
     val createdAt: String,
     val updatedAt: String,
     val deletedAt: String,
