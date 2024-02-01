@@ -19,12 +19,13 @@ class CreateBillController (
     private val billDomainRequestMapper: BillDomainRequestMapper,
     private val billDomainResponseMapper: BillDomainResponseMapper
 ) {
-    @PostMapping
+    @PostMapping("/create")
     fun create(@RequestBody bill: BillRequest) : ResponseEntity<BillResponse> {
         return try {
             val billDomain = billDomainRequestMapper.toDomain(bill)
             val uuid = createBillService.create(billDomain)
             val billResponse = billDomainResponseMapper.toResponse(uuid)
+
             ResponseEntity.status(HttpStatus.CREATED).body(billResponse)
         } catch (e: Exception) {
             ResponseEntity.badRequest().build()
