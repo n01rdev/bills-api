@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    environment:
+      - SPRING_PROFILES_ACTIVE=production
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/bill-app
+      - SPRING_DATASOURCE_USERNAME=bills
+      - SPRING_DATASOURCE_PASSWORD=bills123
+
+  db:
+    image: 'postgres:latest'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=bill-app
+      - POSTGRES_USER=bills
+      - POSTGRES_PASSWORD=bills123

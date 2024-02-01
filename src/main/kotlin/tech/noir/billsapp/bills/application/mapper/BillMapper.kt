@@ -45,10 +45,10 @@ class BillMapper(
             base = billEntity.base,
             iva = billEntity.iva,
             total = billEntity.total,
+            active = billEntity.active,
             createdAt = billEntity.createdAt.toString(),
             updatedAt = billEntity.updatedAt.toString(),
-            deletedAt = billEntity.deletedAt?.toString() ?: "",
-            active = billEntity.active
+            deletedAt = billEntity.deletedAt?.toString() ?: ""
         )
     }
 }

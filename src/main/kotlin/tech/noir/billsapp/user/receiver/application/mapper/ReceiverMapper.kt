@@ -17,10 +17,7 @@ class ReceiverMapper {
             city = receiver.city,
             province = receiver.province,
             country = receiver.country,
-            active = receiver.active,
-            createdAt = receiver.createdAt,
-            updatedAt = receiver.updatedAt,
-            deletedAt = receiver.deletedAt
+            active = receiver.active
         )
     }
 
@@ -37,9 +34,9 @@ class ReceiverMapper {
             province = receiverEntity.province,
             country = receiverEntity.country,
             active = receiverEntity.active,
-            createdAt = receiverEntity.createdAt,
-            updatedAt = receiverEntity.updatedAt,
-            deletedAt = receiverEntity.deletedAt
+            createdAt = receiverEntity.createdAt.toString(),
+            updatedAt = receiverEntity.updatedAt.toString(),
+            deletedAt = receiverEntity.deletedAt.toString()
         )
     }
 }

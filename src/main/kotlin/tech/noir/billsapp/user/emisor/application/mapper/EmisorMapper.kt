@@ -17,10 +17,7 @@ class EmisorMapper {
             city = emisor.city,
             province = emisor.province,
             country = emisor.country,
-            active = emisor.active,
-            createdAt = emisor.createdAt,
-            updatedAt = emisor.updatedAt,
-            deletedAt = emisor.deletedAt
+            active = emisor.active
         )
     }
 
@@ -37,9 +34,9 @@ class EmisorMapper {
             province = emisorEntity.province,
             country = emisorEntity.country,
             active = emisorEntity.active,
-            createdAt = emisorEntity.createdAt,
-            updatedAt = emisorEntity.updatedAt,
-            deletedAt = emisorEntity.deletedAt
+            createdAt = emisorEntity.createdAt.toString(),
+            updatedAt = emisorEntity.updatedAt.toString(),
+            deletedAt = emisorEntity.deletedAt.toString()
         )
     }
 }

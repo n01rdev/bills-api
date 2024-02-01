@@ -24,7 +24,7 @@ class EmisorRepository(
     }
 
     override fun delete(uuid: String) {
-        val emisorEntity = jpaRepository.findByUuidAndActiveTrue(uuid)
+        val emisorEntity = findByUuidEntity(uuid)
         emisorEntity?.let {
             it.active = false
             it.deletedAt= LocalDateTime.now()
