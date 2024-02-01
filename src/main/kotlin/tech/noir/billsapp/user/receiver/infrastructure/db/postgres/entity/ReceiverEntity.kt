@@ -40,7 +40,7 @@ data class ReceiverEntity (
     val country : String = "",
 
     @Column(nullable = false)
-    val active: Boolean = false,
+    var active: Boolean = false,
 
     @CreationTimestamp
     @Column(nullable = false)

@@ -11,8 +11,8 @@ data class Bill(
     val base: Double,
     val iva: Double,
     val total: Double,
+    val active: Boolean,
     val createdAt: String,
     val updatedAt: String,
     val deletedAt: String,
-    val active: Boolean
 )
