@@ -3,28 +3,25 @@ package tech.noir.billsapp.bill.application.mapper
 import org.springframework.stereotype.Component
 import tech.noir.billsapp.bill.domain.model.Bill
 import tech.noir.billsapp.bill.infrastructure.db.postgres.entity.BillEntity
-import tech.noir.billsapp.user.emisor.application.mapper.EmisorMapper
-import tech.noir.billsapp.user.emisor.infrastructure.db.postgres.repository.EmisorRepository
-import tech.noir.billsapp.user.receiver.application.mapper.ReceiverMapper
-import tech.noir.billsapp.user.receiver.infrastructure.db.postgres.repository.ReceiverRepository
+import tech.noir.billsapp.user.application.mapper.UserEntityDomainMapper
+import tech.noir.billsapp.user.infrastructure.db.postgres.entity.UserEntity
+import tech.noir.billsapp.user.infrastructure.db.postgres.repository.UserRepository
 
 @Component
 class BillEntityDomainMapper(
-    private val emisorRepository: EmisorRepository,
-    private val receiverRepository: ReceiverRepository,
-    private val emisorMapper: EmisorMapper,
-    private val receiverMapper: ReceiverMapper
+    private val userRepository: UserRepository,
+    private val userEntityDomainMapper: UserEntityDomainMapper,
 ) {
     fun toEntity(bill: Bill): BillEntity {
-        val emisorEntity = emisorRepository.findByUuid(bill.emisorUuid)?.let { emisorMapper.toEntity(it) }
-        val receiverEntity = receiverRepository.findByUuid(bill.receiverUuid)?.let { receiverMapper.toEntity(it) }
+        val emisorUuid = userRepository.findByUuid(bill.emisorUuid)?.let { userEntityDomainMapper.toEntity(it) } ?: UserEntity()
+        val receiverUuid = userRepository.findByUuid(bill.receiverUuid)?.let { userEntityDomainMapper.toEntity(it) } ?: UserEntity()
 
         return BillEntity(
             uuid = bill.uuid,
             billNumber = bill.billNumber,
             expeditionDate = bill.expeditionDate,
-            emisor = emisorEntity,
-            receiver = receiverEntity,
+            emisor = emisorUuid,
+            receiver = receiverUuid,
             concept = bill.concept,
             base = bill.base,
             iva = bill.iva,
@@ -39,8 +36,8 @@ class BillEntityDomainMapper(
             uuid = billEntity.uuid,
             billNumber = billEntity.billNumber,
             expeditionDate = billEntity.expeditionDate,
-            emisorUuid = billEntity.emisor?.uuid ?: "",
-            receiverUuid = billEntity.receiver?.uuid ?: "",
+            emisorUuid = billEntity.emisor.uuid,
+            receiverUuid = billEntity.receiver.uuid,
             concept = billEntity.concept,
             base = billEntity.base,
             iva = billEntity.iva,
